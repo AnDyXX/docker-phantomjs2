@@ -177,7 +177,7 @@ class PhantomJSBuilder(object):
             # Unix platform options
             platformOptions = [
                 # use the headless QPA platform
-                "-qpa", "phantom",
+                #"-qpa", "phantom",
                 # disable qpa guard
                 "-no-qpa-platform-guard",
                 # explicitly compile with SSL support, so build will fail if headers are missing

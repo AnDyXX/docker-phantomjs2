@@ -10,8 +10,6 @@ ENV buildDependencies\
 ENV phantomJSDependencies\
   libicu-dev libfontconfig1-dev libjpeg-dev libfreetype6
 
-COPY custom_scripts custom_scripts
-
 # Install required APT deps
 RUN \
     apt-get update -yqq \
@@ -25,16 +23,21 @@ RUN mkdir phantomjs \
 &&  cd phantomjs \
 &&  git submodule init \
 &&  git submodule update \
-# restore build.py
-&&  cp /custom_scripts/build.py ./ \
-# restore phantomjs.pro
-&&  cp /custom_scripts/phantomjs.pro src/ \
 # checkout QT Core
 &&  mkdir -p src/qt/qtbase \
 &&  git clone https://github.com/Vitallium/qtbase.git src/qt/qtbase \
 # checkout QT WebKit 
 &&  mkdir -p src/qt/qtwebkit \
 &&  git clone https://github.com/Vitallium/qtwebkit.git src/qt/qtwebkit
+
+COPY custom_scripts custom_scripts
+
+RUN cd phantomjs \
+&&  cd phantomjs \ 
+# restore build.py
+&&  cp /custom_scripts/build.py ./ \
+# restore phantomjs.pro
+&&  cp /custom_scripts/phantomjs.pro src/ 
 
 # Build PhantomJS
 RUN cd phantomjs \
