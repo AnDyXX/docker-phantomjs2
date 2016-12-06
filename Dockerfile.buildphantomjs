@@ -41,6 +41,9 @@ RUN cd phantomjs \
 # restore phantom plugin
 && mkdir -p src/qt/qtbase/src/plugins/platforms/phantom \
 &&  cp /custom_scripts/phantom/* src/qt/qtbase/src/plugins/platforms/phantom
+# restore platforms.pro
+&&  cp /custom_scripts/platforms.pro src/qt/qtbase/src/plugins/platforms
+
 
 # Build PhantomJS
 RUN cd phantomjs \
