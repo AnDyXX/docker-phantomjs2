@@ -3,6 +3,8 @@ TARGET = phantomjs
 QT += network webkitwidgets
 CONFIG += console
 
+QTPLUGIN = qphantom
+
 DESTDIR = ../bin
 
 RESOURCES = phantomjs.qrc \
