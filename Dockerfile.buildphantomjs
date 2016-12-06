@@ -37,7 +37,10 @@ RUN cd phantomjs \
 # restore build.py
 &&  cp /custom_scripts/build.py ./ \
 # restore phantomjs.pro
-&&  cp /custom_scripts/phantomjs.pro src/ 
+&&  cp /custom_scripts/phantomjs.pro src/ \
+# restore phantom plugin
+&& mkdir -p src/qt/qtbase/src/plugins/platforms/phantom \
+&&  cp /custom_scripts/phantom/* src/qt/qtbase/src/plugins/platforms/phantom
 
 # Build PhantomJS
 RUN cd phantomjs \
